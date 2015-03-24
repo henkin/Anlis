@@ -1,0 +1,15 @@
+﻿using NUnit.Framework;
+
+namespace Anlis.Core.Tests
+{
+    [TestFixture]
+    public class RandomStatementTests
+    {
+        [Test]
+        public void GetRandomStatement()
+        {
+            var statement = RandomPhraseService.GetRandomPhraseFromResource();
+            Assert.IsNotNull(statement);
+        }
+    }
+}
