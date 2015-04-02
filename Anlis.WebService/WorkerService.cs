@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
+using Anlis.Server;
 using NLog;
 
-namespace Anlis.Server
+namespace Anlis.Service.Web
 {
     public delegate void WorkerStatusChangeHandler(WorkerStatus status);
 
@@ -26,8 +25,8 @@ namespace Anlis.Server
 
         public delegate void WorkerStatusChangeHandler(WorkerStatus status);
 
-        public event Server.WorkerStatusChangeHandler OnWorkerConnected = (x) => { };
-        public event Server.WorkerStatusChangeHandler OnWorkerDisconnected = (x) => { };
+        public event Web.WorkerStatusChangeHandler OnWorkerConnected = (x) => { };
+        public event Web.WorkerStatusChangeHandler OnWorkerDisconnected = (x) => { };
 
         private static List<WorkerStatus> _workers = new List<WorkerStatus>();
         private Dictionary<string, int> _workerTimers = new Dictionary<string, int>();

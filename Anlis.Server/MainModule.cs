@@ -1,4 +1,6 @@
+using System;
 using System.Resources;
+using System.Threading.Tasks;
 using Anlis.Core;
 using Nancy;
 using Nancy.ModelBinding;
@@ -54,11 +56,30 @@ namespace Anlis.Server
             {
                 var workerUpdate = this.Bind<WorkerStatus>();
 
-                _workerService.UpdateWorker(workerUpdate);
+                await _workerService.UpdateWorker(workerUpdate);
 
                 return null;
             };
 
+            Post["/statements", true] = async (_, ct) =>
+            {
+                var statements = this.Bind<ParsedStatementRequest>();
+                var response = await GetParsedStatementResponse(statements);
+                return response;
+            };
+}
+
+        private async Task<ParsedStatementResponse> GetParsedStatementResponse(ParsedStatementRequest statements)
+        {
+            // distribute the work among the servers 
+            
+            // count the complexity along with how long it took. 
+
+            // 
+            Console.WriteLine(statements);
+
+            //- and remembr the results.
+            return null;
         }
 
 
@@ -68,5 +89,13 @@ namespace Anlis.Server
         }
 
         
+    }
+
+    internal class ParsedStatementResponse
+    {
+    }
+
+    public class ParsedStatementRequest
+    {
     }
 }

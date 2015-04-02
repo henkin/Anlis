@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E41251A8-BA32-4AFC-A598-96E5176BDAF8}</ProjectGuid>
+    <ProjectGuid>{9B2C45F8-F01D-4531-BD5A-C485E98082D2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Anlis.Server</RootNamespace>
-    <AssemblyName>Anlis.Server</AssemblyName>
+    <RootNamespace>Anlis.Service.Web</RootNamespace>
+    <AssemblyName>Anlis.Service.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Anlis.Server.Program</StartupObject>
+    <StartupObject>Anlis.Service.Web.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Owin">
@@ -73,12 +73,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainModule.cs" />
+    <Compile Include="SiteApplication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="WorkerService.cs" />
     <Compile Include="WorkerStatus.cs" />
+    <Compile Include="ServiceModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

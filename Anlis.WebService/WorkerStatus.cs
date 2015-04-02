@@ -1,4 +1,4 @@
-namespace Anlis.Server
+namespace Anlis.Service.Web
 {
     public class WorkerStatus
     {
