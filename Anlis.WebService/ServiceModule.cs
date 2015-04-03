@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using Anlis.Core;
@@ -34,7 +36,7 @@ namespace Anlis.Service.Web
 		}
         public SiteModule()
         {
-            Get["/", true] = async (x, ct) => "meh"; //
+            Get["/", true] = async (x, ct) => GetVersion(); //
 
 
 //            Post["/worker", true] = async (_, ct) =>
@@ -70,6 +72,15 @@ namespace Anlis.Service.Web
 
 
             //    };
+        }
+
+        private string GetVersion()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fvi.FileVersion;
+
+            return version;
         }
 
         private async Task<StatementAnalysisResponse> CreateStatements(StatementAnalysisRequest statements)

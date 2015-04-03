@@ -1,6 +1,0 @@
-psexec \\dj -u pasha -p bobdole cmd /c mkdir c:\Anlis.Server
-psexec \\dj -u pasha -p bobdole wget.exe 'http://ender-win:8080/guestAuth/repository/download/Anlis_Anlis/lastSuccessful/Anlis.Server.zip'
-psexec \\dj -u pasha -p bobdole cmd /c copy Anlis.Server.zip\*.* c:\Anlis.Server
-
-
-http://ender-win:8080/guestAuth/repository/download/Anlis_Anlis/lastSuccessful/Anlis.Server.zip
