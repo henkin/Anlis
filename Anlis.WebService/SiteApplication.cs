@@ -22,10 +22,11 @@ namespace Anlis.Server
 
         public void Start()
         {
+
             _webApp = WebApp.Start<Startup>(_url);
             Console.WriteLine("Running on {0}", _url);
             Console.WriteLine("Ctrl-C to exit");
-            Console.ReadLine();
+			while (true) {			}
         }
 
         public void Stop()
