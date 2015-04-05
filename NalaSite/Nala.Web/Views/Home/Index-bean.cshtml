@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Anlis.co</h1>
+    <p class="lead">Useful Natural Language Processing </p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            <a href="/Demo/" class="button">Demo</a>
+        </p>
+        <p>
+            To start on getting meaning from language, check out the [demo] page. Then you can dig
+            into other examples, learn more about meaning extraction
+        </p>
+        <p style="font-family: 'Lucida Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 16px; color: rgb(0, 0, 0);"></p>
+        <table width="90%" align="center" cellspacing="15" style="font-family: 'Lucida Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 16px; border: 1px dashed rgb(119, 119, 119);">
+            <tbody>
+                <tr><td align="center" width="10%"><b>Property name</b></td><td align="center" width="20%"><b>Annotator class name</b></td><td align="center" width="20%"><b>Generated Annotation</b></td><td align="left" width="50%"><b>Description</b></td></tr>
+                <tr><td align="center">tokenize</td><td align="center">PTBTokenizerAnnotator</td><td align="center">TokensAnnotation (list of tokens), and CharacterOffsetBeginAnnotation, CharacterOffsetEndAnnotation, TextAnnotation (for each token)</td><td>Tokenizes the text. This component started as a PTB-style tokenizer, but was extended since then to handle noisy and web text. The tokenizer saves the character offsets of each token in the input text, as CharacterOffsetBeginAnnotation and CharacterOffsetEndAnnotation.</td></tr>
+                <tr><td align="center">cleanxml</td><td align="center">CleanXmlAnnotator</td><td align="center">XmlContextAnnotation</td><td>Remove xml tokens from the document</td></tr>
+                <tr><td align="center">ssplit</td><td align="center">WordToSentenceAnnotator</td><td align="center">SentencesAnnotation</td><td>Splits a sequence of tokens into sentences.</td></tr>
+                <tr><td align="center">pos</td><td align="center">POSTaggerAnnotator</td><td align="center">PartOfSpeechAnnotation</td><td>Labels tokens with their POS tag. For more details see&nbsp;<a href="http://nlp.stanford.edu/software/tagger.shtml" style="color: rgb(102, 0, 153);">this page</a>.</td></tr>
+                <tr><td align="center">lemma</td><td align="center">MorphaAnnotator</td><td align="center">LemmaAnnotation</td><td>Generates the word lemmas for all tokens in the corpus.</td></tr>
+                <tr><td align="center">ner</td><td align="center">NERClassifierCombiner</td><td align="center">NamedEntityTagAnnotation and NormalizedNamedEntityTagAnnotation</td><td>Recognizes named (PERSON, LOCATION, ORGANIZATION, MISC) and numerical entities (DATE, TIME, MONEY, NUMBER). Named entities are recognized using a combination of three CRF sequence taggers trained on various corpora, such as ACE and MUC. Numerical entities are recognized using a rule-based system. Numerical entities that require normalization, e.g., dates, are normalized to NormalizedNamedEntityTagAnnotation. For more details on the CRF tagger see&nbsp;<a href="http://nlp.stanford.edu/software/CRF-NER.shtml" style="color: rgb(102, 0, 153);">this page</a>.</td></tr>
+                <tr><td align="center">regexner</td><td align="center">RegexNERAnnotator</td><td align="center">NamedEntityTagAnnotation</td><td>Implements a simple, rule-based NER over token sequences using Java regular expressions. The goal of this Annotator is to provide a simple framework to incorporate NE labels that are not annotated in traditional NL corpora. For example, the default list of regular expressions that we distribute in the models file recognizes ideologies (IDEOLOGY), nationalities (NATIONALITY), religions (RELIGION), and titles (TITLE). Here is&nbsp;<a href="http://nlp.stanford.edu/software/regexner/" style="color: rgb(102, 0, 153);">a simple example</a>&nbsp;of how to use RegexNER. For more complex applications, you might consider&nbsp;<a href="http://nlp.stanford.edu/software/tokensregex.shtml" style="color: rgb(102, 0, 153);">TokensRegex</a>.</td></tr>
+                <tr><td align="center">sentiment</td><td align="center">SentimentAnnotator</td><td align="center">SentimentCoreAnnotations.AnnotatedTree</td><td>Implements Socher et al's sentiment model. Attaches a binarized tree of the sentence to the sentence level CoreMap. The nodes of the tree then contain the annotations from RNNCoreAnnotations indicating the predicted class and scores for that subtree. See the<a href="http://www-nlp.stanford.edu/sentiment/" style="color: rgb(102, 0, 153);">sentiment page</a>&nbsp;for more information about this project.</td></tr>
+                <tr><td align="center">truecase</td><td align="center">TrueCaseAnnotator</td><td align="center">TrueCaseAnnotation and TrueCaseTextAnnotation</td><td>Recognizes the true case of tokens in text where this information was lost, e.g., all upper case text. This is implemented with a discriminative model implemented using a CRF sequence tagger. The true case label, e.g., INIT_UPPER is saved in TrueCaseAnnotation. The token text adjusted to match its true case is saved as TrueCaseTextAnnotation.</td></tr>
+                <tr><td align="center">parse</td><td align="center">ParserAnnotator</td><td align="center">TreeAnnotation, BasicDependenciesAnnotation, CollapsedDependenciesAnnotation, CollapsedCCProcessedDependenciesAnnotation</td><td>Provides full syntactic analysis, using both the constituent and the dependency representations. The constituent-based output is saved in TreeAnnotation. We generate three dependency-based outputs, as follows: basic, uncollapsed dependencies, saved in BasicDependenciesAnnotation; collapsed dependencies saved in CollapsedDependenciesAnnotation; and collapsed dependencies with processed coordinations, in CollapsedCCProcessedDependenciesAnnotation. Most users of our parser will prefer the latter representation. For more details on the parser, please see&nbsp;<a href="http://nlp.stanford.edu/software/lex-parser.shtml" style="color: rgb(102, 0, 153);">this page</a>. For more details about the dependencies, please refer to&nbsp;<a href="http://nlp.stanford.edu/software/stanford-dependencies.shtml" style="color: rgb(102, 0, 153);">this page</a>.</td></tr>
+                <tr>
+                    <td align="center">dcoref</td>
+                    <td align="center">DeterministicCorefAnnotator</td>
+                    <td align="center">CorefChainAnnotation</td>
+                    <td>Implements both pronominal and nominal coreference resolution. The entire coreference graph (with head words of mentions as nodes) is saved in CorefChainAnnotation. For more details on the underlying coreference resolution algorithm, see&nbsp;<a href="http://nlp.stanford.edu/software/dcoref.shtml" style="color: rgb(102, 0, 153);">this page</a>.</td>
+                </tr>
+            </tbody>
+        </table><p></p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more »</a>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>

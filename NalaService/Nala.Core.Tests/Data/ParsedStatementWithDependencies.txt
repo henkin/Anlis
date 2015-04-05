@@ -1,0 +1,71 @@
+﻿<s>
+<tree style="xml">
+<node value="ROOT">
+  <node value="S">
+    <node value="NP">
+      <node value="NNP">
+        <leaf value="Bob"/>
+      </node>
+    </node>
+    <node value="VP">
+      <node value="VBZ">
+        <leaf value="likes"/>
+      </node>
+      <node value="S">
+        <node value="VP">
+          <node value="TO">
+            <leaf value="to"/>
+          </node>
+          <node value="VP">
+            <node value="VB">
+              <leaf value="eat"/>
+            </node>
+            <node value="NP">
+              <node value="NNS">
+                <leaf value="apples"/>
+              </node>
+            </node>
+            <node value="PP">
+              <node value="IN">
+                <leaf value="after"/>
+              </node>
+              <node value="NP">
+                <node value="NN">
+                  <leaf value="work"/>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+</node>
+</tree>
+<dependencies style="untyped">
+  <dep>
+    <governor>likes</governor>
+    <dependent>Bob</dependent>
+  </dep>
+  <dep>
+    <governor>likes</governor>
+    <dependent>to</dependent>
+  </dep>
+  <dep>
+    <governor>to</governor>
+    <dependent>eat</dependent>
+  </dep>
+  <dep>
+    <governor>eat</governor>
+    <dependent>apples</dependent>
+  </dep>
+  <dep>
+    <governor>eat</governor>
+    <dependent>after</dependent>
+  </dep>
+  <dep>
+    <governor>after</governor>
+    <dependent>work</dependent>
+  </dep>
+</dependencies>
+</s>
