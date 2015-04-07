@@ -93,6 +93,8 @@
     <Content Include="Dockerfile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Deploy\deploy.sh" />
+    <None Include="Deploy\deploy %28copy%29.sh" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nala.Core\Nala.Core.csproj">
@@ -116,4 +118,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="Deploy\" />
+  </ItemGroup>
 </Project>

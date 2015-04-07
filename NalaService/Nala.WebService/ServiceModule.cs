@@ -16,11 +16,11 @@ namespace Nala.Service.Web
         public string Statement { get; set; }
     }
 
-    public class SiteModule : NancyModule
+    public class ServiceModule : NancyModule
     {
         //private static readonly IWorkerService _workerService;
 
-        static SiteModule()
+        static ServiceModule()
         {
            // _workerService = new WorkerService();
         }
@@ -30,23 +30,12 @@ namespace Nala.Service.Web
 			var foo = "Howdy";
 			return foo;
 		}
-        public SiteModule()
+        public ServiceModule()
         {
             Get["/", true] = async (x, ct) => GetVersion(); //
 
-
-//            Post["/worker", true] = async (_, ct) =>
-//            {
-//   //             var workerUpdate = this.Bind<WorkerStatus>();
-//
-//                await _workerService.UpdateWorker(workerUpdate);
-//
-//                return null;
-//            };
-//
             Post["/statements", true] = async (_, ct) =>
             {
-                var content = _.Statement;
                 var statements = this.Bind<StatementAnalysisRequest>();
                 var response = await CreateStatements(statements);
                 return Response.AsJson(response);
