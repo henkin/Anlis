@@ -1,1 +1,0 @@
-copy /y *.* \\dj\c$\Anlis.Server
