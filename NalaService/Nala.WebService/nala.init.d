@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 # nala daemon
 # chkconfig: 345 20 80
 # description: nala daemon
