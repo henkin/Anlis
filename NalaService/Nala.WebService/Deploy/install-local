@@ -1,0 +1,8 @@
+#!/bin/bash
+NALA=/usr/share/services/nala
+rm -r $NALA
+mkdir $NALA
+cp -r ../* $NALA
+cp nala-ws /etc/init.d
+update-rc.d nala-ws defaults
+echo $NALA
