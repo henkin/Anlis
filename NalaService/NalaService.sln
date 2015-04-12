@@ -22,8 +22,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nala.Server", "Nala.Server\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nala.WebService", "Nala.WebService\Nala.WebService.csproj", "{9B2C45F8-F01D-4531-BD5A-C485E98082D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nala.WebService.Tests", "Nala.WebService.Tests\Nala.WebService.Tests.csproj", "{0FF1BCE2-96E3-4159-8129-887091EAAA76}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nala.Client", "Nala.Client\Nala.Client.csproj", "{19B7875E-94AF-4800-A7B2-D2DE8BDD78D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nala.Client.Tests", "Nala.Client.Tests\Nala.Client.Tests.csproj", "{15913B3B-4D19-4947-A371-50906EA68725}"
@@ -63,10 +61,6 @@ Global
 		{9B2C45F8-F01D-4531-BD5A-C485E98082D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B2C45F8-F01D-4531-BD5A-C485E98082D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B2C45F8-F01D-4531-BD5A-C485E98082D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0FF1BCE2-96E3-4159-8129-887091EAAA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0FF1BCE2-96E3-4159-8129-887091EAAA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FF1BCE2-96E3-4159-8129-887091EAAA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0FF1BCE2-96E3-4159-8129-887091EAAA76}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19B7875E-94AF-4800-A7B2-D2DE8BDD78D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19B7875E-94AF-4800-A7B2-D2DE8BDD78D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19B7875E-94AF-4800-A7B2-D2DE8BDD78D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
