@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Configuration;
 using Microsoft.Owin.Hosting;
+using NLog;
 
 namespace Nala.Service.Web
 {
     public class SiteApplication
     {
+		private static Logger _logger = LogManager.GetCurrentClassLogger();
+
         private IDisposable _webApp;
         private string _url;
 
@@ -21,16 +24,14 @@ namespace Nala.Service.Web
 
         public void Start()
         {
-
             _webApp = WebApp.Start<Startup>(_url);
-            Console.WriteLine("Running on {0}", _url);
-            Console.WriteLine("Ctrl-C to exit");
-			while (true) {			}
+			_logger.Debug("Running on {0}", _url);
+			_logger.Debug("Ctrl-C to exit");
         }
 
         public void Stop()
         {
-            Console.WriteLine("Exiting.");
+			_logger.Debug("Exiting.");
             if (_webApp != null)
                 _webApp.Dispose();
             _webApp = null;
