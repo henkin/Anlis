@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Nancy;
 using Nancy.ModelBinding;
+using System;
 
 namespace Nala.Service.Web
 {
@@ -64,6 +65,8 @@ namespace Nala.Service.Web
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
+
+			//throw new InvalidOperationException ("woops");
 
             return version;
         }

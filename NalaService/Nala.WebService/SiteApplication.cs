@@ -2,6 +2,8 @@
 using System.Configuration;
 using Microsoft.Owin.Hosting;
 using NLog;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Nala.Service.Web
 {
@@ -25,13 +27,16 @@ namespace Nala.Service.Web
         public void Start()
         {
             _webApp = WebApp.Start<Startup>(_url);
-			_logger.Debug("Running on {0}", _url);
-			_logger.Debug("Ctrl-C to exit");
+			_logger.Warn("Running on {0}", _url);
+			_logger.Warn("Ctrl-C to exit");
+
+			//Thread.Sleep(2000);
+
         }
 
         public void Stop()
         {
-			_logger.Debug("Exiting.");
+			_logger.Warn("Exiting.");
             if (_webApp != null)
                 _webApp.Dispose();
             _webApp = null;
