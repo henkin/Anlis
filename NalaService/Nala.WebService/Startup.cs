@@ -1,4 +1,5 @@
 ﻿using Owin;
+using Nancy;
 
 namespace Nala.Service.Web
 {
@@ -7,6 +8,7 @@ namespace Nala.Service.Web
         public void Configuration(IAppBuilder app)
         {
             app.UseNancy();
+			StaticConfiguration.DisableErrorTraces = false;
         }
     }
 }
