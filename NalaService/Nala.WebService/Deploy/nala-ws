@@ -14,23 +14,21 @@
 case "$1" in
   start)
     echo "Starting nala-ws "
-    
     # example 1 - system service
-    /usr/share/services/nala-ws/nala-ws
-
+    /usr/bin/mono-service /usr/share/services/nala-ws/Nala.Service.Web.exe
     # example 2 - run script as user
     # su --login mkaz --command "/home/mkaz/bin/my-script --cmd-args"
-    
     ;;
   stop)
-    echo "Stopping foobar"
-    
-    # example 1
-    # /usr/bin/foobar --config /etc/foo.conf stop
-
+    echo "Stopping nala-ws"
+    kill `cat /tmp/Nala.Service.Web.exe.lock`
+    ;;
+  restart|reload|condrestart)
+    stop
+    start
     ;;
   *)
-    echo "Usage: /etc/init.d/foobar {start|stop}"
+    echo "Usage: /etc/init.d/nala-ws {start|stop}"
     exit 1
     ;;
 esac

@@ -9,10 +9,10 @@ namespace Nala.Service.Web
 {
     public class SiteApplication
     {
-		private static Logger _logger = LogManager.GetCurrentClassLogger();
+		static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-        private IDisposable _webApp;
-        private string _url;
+        IDisposable _webApp;
+        string _url;
 
         public SiteApplication(string[] args)
         {
@@ -29,9 +29,6 @@ namespace Nala.Service.Web
             _webApp = WebApp.Start<Startup>(_url);
 			_logger.Warn("Running on {0}", _url);
 			_logger.Warn("Ctrl-C to exit");
-
-			//Thread.Sleep(2000);
-
         }
 
         public void Stop()
