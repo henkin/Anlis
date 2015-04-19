@@ -1,2 +1,0 @@
-#!/bin/bash
-scp -r ./* pi@pi2:/usr/share/services/nala

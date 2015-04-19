@@ -12,20 +12,20 @@
 
 # Carry out specific functions when asked to by the system
 case "$1" in
+  restart|reload|condrestart)
+    $0 stop
+    $0 start
+    ;;
   start)
     echo "Starting nala-ws "
     # example 1 - system service
-    /usr/bin/mono-service /usr/share/services/nala-ws/Nala.Service.Web.exe
+    /usr/bin/mono-service -d:/usr/share/services/nala-ws /usr/share/services/nala-ws/Nala.Service.Web.exe
     # example 2 - run script as user
     # su --login mkaz --command "/home/mkaz/bin/my-script --cmd-args"
     ;;
   stop)
     echo "Stopping nala-ws"
     kill `cat /tmp/Nala.Service.Web.exe.lock`
-    ;;
-  restart|reload|condrestart)
-    stop
-    start
     ;;
   *)
     echo "Usage: /etc/init.d/nala-ws {start|stop}"
