@@ -4,12 +4,14 @@ using System.Threading.Tasks;
 using Nancy;
 using Nancy.ModelBinding;
 using System;
+using Nala.Core.NLP;
 
 namespace Nala.Service.Web
 {
     public class StatementAnalysisResponse
     {
         public string Statement { get; set; }
+        public ParsedStatementFactory.ParseResult Parse { get; set; }
     }
 
     public class StatementAnalysisRequest
@@ -19,11 +21,13 @@ namespace Nala.Service.Web
 
     public class ServiceModule : NancyModule
     {
+        private static NlpService _nlpService;
         //private static readonly IWorkerService _workerService;
 
         static ServiceModule()
         {
            // _workerService = new WorkerService();
+            _nlpService = new NlpService();
         }
 
 		public async Task<string> GetData()
@@ -33,6 +37,8 @@ namespace Nala.Service.Web
 		}
         public ServiceModule()
         {
+            
+
             Get["/", true] = async (x, ct) => GetVersion(); //
 
             Post["/statements", true] = async (_, ct) =>
@@ -76,8 +82,11 @@ namespace Nala.Service.Web
             // farm out to all deps. 
 
             // compose back and send out
-            return new StatementAnalysisResponse() { Statement = statements.Statement };
+            var response = new StatementAnalysisResponse() { Statement = statements.Statement };
+            var parse = _nlpService.ParseStatement(statements.Statement);
 
+            response.Parse = parse;
+            return response;
         }
     }
 
